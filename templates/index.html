@@ -2,6 +2,30 @@
 <html>
 <head>
     <title>botec hohmann calculator</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+body{
+    background: #bec;
+    color: #031;
+    margin-left: 1.6em;
+    max-width: 49em;
+    font-family: Gugi, sans-serif;
+}
+
+select, label, button {
+    font-size: 1em;
+    font-family: Gugi, sans-serif !important;
+}
+
+button {
+
+    margin-top: 1em;
+    display: block;
+    width: 15em;
+    height: 3em;
+}
+
+</style>
 </head>
 <body>
     <h1>Back-of-the-envelope Orbital Transfer Calculator</h1>
@@ -22,7 +46,6 @@
     </form>
     {% if course %}
     <section>
-        <h1>{{ course }}</h1>
         <p>Total 𝝙v: {{ course.deltavee() | round(2) }} m/s.<p>
         {% if course.duration %}
         <p>Elapsed time: {{ course.duration() | precisedelta }}<p>
