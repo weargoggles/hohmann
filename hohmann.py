@@ -10,7 +10,7 @@ import re
 NUMBERS = re.compile(r'^\d+$')
 
 WORLD = botec.load()
-LOCATIONS = sorted(loc for loc in WORLD.keys() if WORLD[loc].radius() > 0)
+LOCATIONS = sorted(loc for loc in WORLD.keys() if not NUMBERS.match(loc) and WORLD[loc].radius() > 0)
 
 templates = Jinja2Templates(directory='templates')
 
