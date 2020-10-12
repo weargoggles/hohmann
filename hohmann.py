@@ -6,6 +6,12 @@ import humanize
 from datetime import timedelta
 from starlette.templating import Jinja2Templates
 import re
+import sentry_sdk
+from sentry_sdk.integrations.asgi import SentryAsgiMiddleware
+sentry_sdk.init(
+    "https://d0b9b59743564012a6e876525f876a7f@o297975.ingest.sentry.io/5461409",
+    traces_sample_rate=1.0
+)
 
 NUMBERS = re.compile(r'^\d+$')
 
@@ -85,3 +91,5 @@ async def transfer(request):
 app = Starlette(debug=True, routes=[
     Route('/', transfer, name='transfer'),
 ])
+
+app = SentryAsgiMiddleware(app)
