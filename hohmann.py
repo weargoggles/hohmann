@@ -65,7 +65,9 @@ async def transfer_data(request):
     }
 
 async def transfer(request):
-    if 'origin' in request.query_params and 'destination' in request.query_params:
+    origin = request.query_params.get('origin')
+    destination = request.query_params.get('destination')
+    if origin and destination and origin != destination:
         origin = loc(request.query_params['origin'])
         destination = loc(request.query_params['destination'])
         course = botec.Course(origin, destination)
