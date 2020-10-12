@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>botec hohmann calculator</title>
+</head>
+<body>
+    <h1>Back-of-the-envelope Orbital Transfer Calculator</h1>
+    <form method="get" action="{{ url_for('transfer') }}">
+        <label for="origin">From:</label>
+        <select id="origin" name="origin">
+            {% for location in LOCATIONS -%}
+            <option value={{ location }} {% if origin == location %}selected{% endif %}>{{location}}</option>
+            {%- endfor %}
+        </select>
+        <label for="origin">To:</label>
+        <select id="destination" name="destination">
+            {% for location in LOCATIONS -%}
+            <option value={{ location }} {% if destination == location %}selected{% endif %}>{{location}}</option>
+            {%- endfor %}
+        </select>
+        <button>Calculate Course</button>
+    </form>
+    {% if course %}
+    <section>
+        <h1>{{ course }}</h1>
+        <p>Total 𝝙v: {{ course.deltavee() | round(2) }} m/s.<p>
+        {% if course.duration %}
+        <p>Elapsed time: {{ course.duration() | precisedelta }}<p>
+        {% endif %}
+        {% if course.opportunities() %}<h3>Opportunities</h3>
+        <ul>
+        {% for opportunity in course.opportunities() %}
+        <li>{{ opportunity }}: angle {{ opportunity.angle() | round(3) }} rad, period {{ opportunity.period() | precisedelta }}</li>
+        {% endfor %}
+        </ul>{% endif %}
+        {% if course.transfers() %}<h3>Transfers</h3>
+        <ol>
+        {% for transfer in course.transfers() %}
+        <li>{{ transfer }}: {{ transfer.burns() | length }} burns, 𝝙v {{ transfer.deltavee() | round(2) }} m/s</li>
+        {% endfor %}
+        </ol>
+        {% endif %}
+        {% if course.maneuvers() %}<h3>Maneuvers</h3>
+        <ol>
+        {% for maneuver in course.maneuvers() %}
+        <li>{{ maneuver }}: {{ maneuver.burns() | length }} burns, 𝝙v {{ maneuver.deltavee() | round(2) }} m/s</li>
+        {% endfor %}
+        </ol>
+        {% endif %}
+    </section>
+    {% endif %}
+    <p>This calculator produces results using the <a href="http://www.alcyone.com/software/botec/">botec library, developed by Eric Max Francis</a>. The source code for this web wrapper can be found at https://github.com/weargoggles/hohmann</p>
+</body>

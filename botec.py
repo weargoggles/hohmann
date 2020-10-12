@@ -22,6 +22,7 @@ import re
 import sys
 import time
 import types
+import logging
 
 try:
     import cPickle as pickle
@@ -198,7 +199,7 @@ class SI(ReprMixin):
         prefixes, and convert it to a 2-tuple of the converted value
         and the base unit."""
         # First check for non-SI units.
-        if SI.OTHERS.has_key(raw):
+        if raw in SI.OTHERS:
             return SI.OTHERS[raw]
         # Next look for SI units.
         for unit in SI.BASES:
@@ -211,7 +212,7 @@ class SI(ReprMixin):
     Convert = staticmethod(Convert)
 
     def __init__(self, value, unit=None):
-        if type(value) is types.StringType:
+        if type(value) is str:
             assert unit is None
             if value.find(' ') >= 0:
                 valueS, rawUnit = value.split(' ', 1)
@@ -246,7 +247,7 @@ class SI(ReprMixin):
     def __str__(self):
         choices = []
         bestChoice = None
-        if self.ALTERNATES.has_key(self.unit):
+        if self.unit in self.ALTERNATES:
             for alternate in self.ALTERNATES[self.unit]:
                 factor, oldBase = self.Convert(alternate)
                 newValue = self.value/factor
@@ -257,7 +258,7 @@ class SI(ReprMixin):
         if bestChoice is not None:
             # Figure out how many digits to show.
             bestValue, bestUnit = bestChoice
-            leftSide = long(abs(bestValue))
+            leftSide = int(abs(bestValue))
             if leftSide == 0:
                 leftDigits = 0
             else:
@@ -592,7 +593,7 @@ class World(Location):
         for key in STRING_KEYS:
             self.data.setdefault(key, 'unspecified')
         # Sort out the primary.
-        if self.data.has_key('primary'):
+        if 'primary' in self.data:
             primary = system[self.data['primary']]
             distance = self.data['distance']
         else:
@@ -600,15 +601,15 @@ class World(Location):
             distance = 0.0
         # If figures are missing, replace them.
         if not self.data['radius']:
-            if self.data.has_key('diameter'):
+            if 'diameter' in self.data:
                 diameter = float(SI(self.data['diameter']))
                 self.data['radius'] = diameter/2.0
         if not self.data['mass']:
-            if self.data.has_key('density'):
+            if 'density' in self.data:
                 density = float(SI(self.data['density']))
                 self.data['mass'] = FOUR_THIRDS_PI*density*self.radius()**3
         if not self.data['period']:
-            if self.data.has_key('synchronous'):
+            if 'synchronous' in self.data:
                 self.data['period'] = primary.orbitalPeriodAtDistance(distance)
         if not self.data['normalized moment of inertia']:
             self.data['normalized moment of inertia'] = TWO_FIFTHS
@@ -617,8 +618,8 @@ class World(Location):
 
     def __getitem__(self, key): return self.data[key]
     def get(self, key, default=None): return self.data.get(key, default)
-    def has(self, key): return self.data.has_key(key)
-    def had(self, key): return self.rawData.has_key(key)
+    def has(self, key): return key in self.data
+    def had(self, key): return key in self.rawData
 
     def isRoot(self): return self.primary() is None
     def secondaries(self): return self.__secondaries[:]
@@ -1576,7 +1577,7 @@ class LandTransfer(ImpulsiveTransfer):
     def location(self): return self.__surface
 
     def burns(self): return [self.__surface.atmosphericFactor()*
-                             self.__surface.speedDifference()]
+                             self.__surface.escapeSpeedExcess()]
 
     def __str__(self):
         return "land on `%s'" % str(self.__surface)
@@ -1713,7 +1714,7 @@ class HohmannTransfer(LateralTransfer):
                   outer.orbitalSpeedAroundPrimary()]
         if isReversed:
             result.reverse()
-        return map(abs, result)
+        return list(map(abs, result))
 
     def __str__(self):
         return "Hohmann from `%s' to `%s'" % \
@@ -2055,7 +2056,7 @@ class Course(ReprMixin):
                                                          1)
             self.__maneuvers = [firstManeuver, secondManeuver]
         else:
-            self.__maneuvers = map(TransferManeuver, self.__transfers)
+            self.__maneuvers = list(map(TransferManeuver, self.__transfers))
 
     def source(self): return self.__source
     def destination(self): return self.__destination
@@ -2098,7 +2099,7 @@ class System(dict, ReprMixin):
         assert isinstance(world, World)
         assert name == world.name()
         for key in world.allNames():
-            assert not self.has_key(key), (world, key)
+            assert not key in self, (world, key)
             self[key] = world
 
     def objects(self):
@@ -2120,8 +2121,7 @@ def load(filename=None):
     except IOError:
         inputFile = open(filename, 'rb')
     tag = pickle.load(inputFile)
-    if DEBUG:
-        print >> sys.stderr, "Tag: %s" % tag
+    logging.debug("Tag: %s" % tag)
     system = pickle.load(inputFile)
     inputFile.close()
     return system
