@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html40/loose.dtd">
+
+<html>
+         
+  <head>
+    <title>Module: botec</title>
+  </head>
+
+  <body bgcolor="#ffffff">
+
+        <p><i><a href="../../../../../index.html">Table of Contents</a></i></p>
+        
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <th rowspan="2"
+                valign="top"
+                align="left"
+                width="10%"
+                bgcolor="#88bbee"><font color="#000000">Module: botec</font>
+            </th>
+            <th bgcolor="#88bbee"
+                width="90%"
+                align="right"><font color="#000000">botec.py</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<p>BOTEC is a simple astrophysical and orbital mechanics calculator,
+including a database of all named Solar System objects.</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Imported modules">Imported modules</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-gzip.html">gzip</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-math.html">math</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-os.html">os</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-re.html">re</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-sys.html">sys</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-time.html">time</a><br>
+<b>import</b> <a href="http://www.python.org/doc/current/lib/module-types.html">types</a><br>
+
+</td></tr>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Functions">Functions</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<a href="#load">load</a><br>
+<a href="#save">save</a><br>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="load"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">load&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+load ( filename=None )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="save"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">save&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+save (
+        system,
+        tag,
+        filename=DEFAULT_FILENAME,
+        protocol=1,
+        compressed=False,
+        )
+
+</pre></font>
+
+</td></tr>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Classes">Classes</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<table border="0" cellpadding="3" cellspacing="0">
+<tr><td valign="top" align="left"><p><a href="botec/AltitudeLocation.html">AltitudeLocation</a></p></td><td valign="top" align="left">
+<p>An altitude location is simply a location expressed in terms of</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/BiellipticTransfer.html">BiellipticTransfer</a></p></td><td valign="top" align="left">
+<p>A bielliptic transfer, which can in some cases take less</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/BiparabolicTransfer.html">BiparabolicTransfer</a></p></td><td valign="top" align="left">
+<p>A biparabolic transfer, which is only included here for</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/CosinesTransfer.html">CosinesTransfer</a></p></td><td valign="top" align="left">
+<p>Given two speeds and an angle between their vectors, compute the</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Course.html">Course</a></p></td><td valign="top" align="left">
+<p>The class which plots a series of transfers from a source</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/ExtractionTransfer.html">ExtractionTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer out of the theatre corresponding to the given</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/GrazingLocation.html">GrazingLocation</a></p></td><td valign="top" align="left">
+<p>A grazing location is a location that grazes the top of a</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/HohmannTransfer.html">HohmannTransfer</a></p></td><td valign="top" align="left">
+<p>A low-energy Hohmann transfer.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/ImpulsiveTransfer.html">ImpulsiveTransfer</a></p></td><td valign="top" align="left">
+<p>An impulsive transfer approximation is one where the duration</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/InsertionTransfer.html">InsertionTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer into the theatre corresponding to the given</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/LagrangeLocation.html">LagrangeLocation</a></p></td><td valign="top" align="left">
+<p>A location representing one of the remaining three Lagrange</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/LandTransfer.html">LandTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer landing on the surface of a world.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/LateralTransfer.html">LateralTransfer</a></p></td><td valign="top" align="left">
+<p>The lateral or primary transfer that takes place and consists</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/LaunchTransfer.html">LaunchTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer launching from the surface of a world.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/LibrationLocation.html">LibrationLocation</a></p></td><td valign="top" align="left">
+<p>A location representing one of the L1 or L2 points.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Location.html">Location</a></p></td><td valign="top" align="left">
+<p>A location represents an orbital position around a primary</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Maneuver.html">Maneuver</a></p></td><td valign="top" align="left">
+<p>A maneuver involves a list of burns (with some total deltavee)</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/OberthManeuver.html">OberthManeuver</a></p></td><td valign="top" align="left">
+<p>An Oberth maneuver (possibly chained) is an insertion or</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Opportunity.html">Opportunity</a></p></td><td valign="top" align="left">
+<p>The representation of an opportunity between two objects in the</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Orbit.html">Orbit</a></p></td><td valign="top" align="left">
+<p>A represention of an orbit, used as a supplementary class.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/PartialTransferManeuver.html">PartialTransferManeuver</a></p></td><td valign="top" align="left">
+<p>A maneuver merely consisting of one burn associated with a</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/PhaseLocation.html">PhaseLocation</a></p></td><td valign="top" align="left">
+<p>A location at a phase angle relative to another location (i.e.,</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/PhaseTransfer.html">PhaseTransfer</a></p></td><td valign="top" align="left">
+<p>A phase transfer as the primary transfer.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/PlaneChangeTransfer.html">PlaneChangeTransfer</a></p></td><td valign="top" align="left">
+<p>Exceute a plane change transfer.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/ReprMixin.html">ReprMixin</a></p></td><td valign="top" align="left">
+<p>A common mixin class for handling reprs.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/ReturnTransfer.html">ReturnTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer returning an object to a location from its L1 or L2</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/SI.html">SI</a></p></td><td valign="top" align="left">
+<p>A class representing a value and an associated unit, capable of</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/SendTransfer.html">SendTransfer</a></p></td><td valign="top" align="left">
+<p>A transfer sending an object from a location to an L1 or L2</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/StationaryLocation.html">StationaryLocation</a></p></td><td valign="top" align="left">
+<p>A stationary location is one that is in an orbit that has the</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/SurfaceLocation.html">SurfaceLocation</a></p></td><td valign="top" align="left">
+<p>A location on the surface of a world.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/System.html">System</a></p></td><td valign="top" align="left">
+<p>The fundamental system class which holds all data on the</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/Transfer.html">Transfer</a></p></td><td valign="top" align="left">
+<p>A representation of a portion of a course identified by a</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/TransferManeuver.html">TransferManeuver</a></p></td><td valign="top" align="left">
+<p>A maneuver merely consisting of those burns associated with a</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/VectorTransfer.html">VectorTransfer</a></p></td><td valign="top" align="left">
+<p>Simple vector change.</p>
+</td></tr>
+<tr><td valign="top" align="left"><p><a href="botec/World.html">World</a></p></td><td valign="top" align="left">
+<p>A world represents a physical object in the system.</p>
+</td></tr>
+</table>
+</td></tr>
+</td></tr>
+</table>
+
+        </td>
+        </tr>
+        </table>
+
+        <hr>
+
+        <p><i><a href="../../../../../index.html">Table of Contents</a></i></p>
+
+        <font size="-2"><i>This document was automatically generated
+        on Sat Aug 26 18:38:02 2006 by
+        <a href="http://happydoc.sourceforge.net">HappyDoc</a> version
+        2.1</i></font>
+        
+        </body>
+        </html>
+        

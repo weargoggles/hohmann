@@ -1,0 +1,1097 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html40/loose.dtd">
+
+<html>
+         
+  <head>
+    <title>Class: Location</title>
+  </head>
+
+  <body bgcolor="#ffffff">
+
+        <p><i><a href="../../../../../../index.html">Table of Contents</a></i></p>
+        
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <th rowspan="2"
+                valign="top"
+                align="left"
+                width="10%"
+                bgcolor="#88bbee"><font color="#000000">Class: Location</font>
+            </th>
+            <th bgcolor="#88bbee"
+                width="90%"
+                align="right"><font color="#000000">botec.py</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<p>A location represents an orbital position around a primary
+    object at a given distance.</p>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Base Classes">Base Classes</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+<a href="ReprMixin.html">ReprMixin</a><br>
+<ul>
+
+object<br>
+
+</ul>
+
+</td></tr>
+</table>
+<table border="0" cellpadding="5" cellspacing="0" width="100%">
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="Methods">Methods</a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        
+
+            <table border="0" cellspacing="2" cellpadding="2" width="100%">
+              <tr>
+            <td align="LEFT" valign="TOP">
+<a href="#__init__">__init__</a><br>
+<a href="#__str__">__str__</a><br>
+<a href="#altitude">altitude</a><br>
+<a href="#closingSpeeds">closingSpeeds</a><br>
+<a href="#distance">distance</a><br>
+<a href="#distanceFrom">distanceFrom</a><br>
+<a href="#effectiveDeltaveeDifference">effectiveDeltaveeDifference</a><br>
+<a href="#escapeSpeedExcess">escapeSpeedExcess</a><br>
+<a href="#escapeSpeedFromPrimary">escapeSpeedFromPrimary</a><br>
+<a href="#findCommonAncestor">findCommonAncestor</a><br>
+<a href="#hierarchy">hierarchy</a><br>
+</td>
+<td align="LEFT" valign="TOP">
+<a href="#instability">instability</a><br>
+<a href="#isAncestorOf">isAncestorOf</a><br>
+<a href="#isDescendentOf">isDescendentOf</a><br>
+<a href="#massicAngularMomentum">massicAngularMomentum</a><br>
+<a href="#massicKineticEnergy">massicKineticEnergy</a><br>
+<a href="#massicPotentialEnergy">massicPotentialEnergy</a><br>
+<a href="#massicTotalEnergy">massicTotalEnergy</a><br>
+<a href="#nominalSpeed">nominalSpeed</a><br>
+<a href="#opportunitiesPeriodWith">opportunitiesPeriodWith</a><br>
+<a href="#opportunityAngleWith">opportunityAngleWith</a><br>
+<a href="#orbitalAngularSpeedAroundPrimary">orbitalAngularSpeedAroundPrimary</a><br>
+</td>
+<td align="LEFT" valign="TOP">
+<a href="#orbitalCircumference">orbitalCircumference</a><br>
+<a href="#orbitalPeriodAroundPrimary">orbitalPeriodAroundPrimary</a><br>
+<a href="#orbitalSpeedAroundPrimary">orbitalSpeedAroundPrimary</a><br>
+<a href="#phaseAngle">phaseAngle</a><br>
+<a href="#pressureAt">pressureAt</a><br>
+<a href="#primaries">primaries</a><br>
+<a href="#primary">primary</a><br>
+<a href="#relativeOrbitalAngularSpeedWith">relativeOrbitalAngularSpeedWith</a><br>
+<a href="#roundTripTimeWith">roundTripTimeWith</a><br>
+<a href="#roundTripWaitTimeWith">roundTripWaitTimeWith</a><br>
+<a href="#stationKeeping">stationKeeping</a><br>
+</td>
+</tr>
+            </table>
+            
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="__init__"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">__init__&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+__init__ (
+        self,
+        primary,
+        distance,
+        )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="__str__"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">__str__&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+__str__ ( self )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="altitude"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">altitude&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+altitude ( self )
+
+</pre></font>
+
+<p>The altitude is the height above the surface. <a href="#refm">[m]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="closingSpeeds"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">closingSpeeds&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+closingSpeeds ( self )
+
+</pre></font>
+
+<p>Return a 2-tuple providing the range of possible impactor closing
+        speeds given that the impactor is travelling at escape speed when
+        it hits. [m/s, m/s]</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="distance"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">distance&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+distance ( self )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="distanceFrom"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">distanceFrom&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+distanceFrom ( self,  other )
+
+</pre></font>
+
+<p>Compute the (average) distance between two bodies, either both of
+        which have the same parent or one is a parent of the other. <a href="#refm">[m]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="effectiveDeltaveeDifference"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">effectiveDeltaveeDifference&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+effectiveDeltaveeDifference ( self,  other )
+
+</pre></font>
+
+<p>The effective (ideal) deltavee between the two locations
+        around the same primary based purely on energy arguments.
+        <a href="#refm/s">[m/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="escapeSpeedExcess"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">escapeSpeedExcess&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+escapeSpeedExcess ( self )
+
+</pre></font>
+
+<p>The difference between the escape speed and the orbital speed.
+        <a href="#refm/s">[m/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="escapeSpeedFromPrimary"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">escapeSpeedFromPrimary&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+escapeSpeedFromPrimary ( self )
+
+</pre></font>
+
+<p>The speed required to escape the primary. <a href="#refm/s">[m/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="findCommonAncestor"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">findCommonAncestor&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+findCommonAncestor ( self,  other )
+
+</pre></font>
+
+<p>Find the lowest world in the hierarchy that is an ancestor
+        to both objects.</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="hierarchy"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">hierarchy&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+hierarchy ( self )
+
+</pre></font>
+
+<p>A list of the objects that are enumerated as one moves up the
+        hierarchy, starting with this object.</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="instability"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">instability&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+instability ( self )
+
+</pre></font>
+
+<p>The inherent instability of this orbital location, measured
+        as the e-folding time of the positional error.  None indicates
+        no instability (an infinite e-folding time). [s, or None]</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="isAncestorOf"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">isAncestorOf&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+isAncestorOf ( self,  other )
+
+</pre></font>
+
+<p>Is this object an ancestor (parent, grandparent, etc.) of the
+        other object?</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="isDescendentOf"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">isDescendentOf&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+isDescendentOf ( self,  other )
+
+</pre></font>
+
+<p>Is this object an descendent (child, grandchild, etc.) of the
+        other object?</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="massicAngularMomentum"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">massicAngularMomentum&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+massicAngularMomentum ( self )
+
+</pre></font>
+
+<p>Orbital angular momentum per unit mass. [m^2/s]</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="massicKineticEnergy"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">massicKineticEnergy&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+massicKineticEnergy ( self )
+
+</pre></font>
+
+<p>Orbital kinetic energy per unit mass. <a href="#refJ/kg">[J/kg]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="massicPotentialEnergy"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">massicPotentialEnergy&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+massicPotentialEnergy ( self )
+
+</pre></font>
+
+<p>Orbital potential energy per unit mass. <a href="#refJ/kg">[J/kg]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="massicTotalEnergy"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">massicTotalEnergy&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+massicTotalEnergy ( self )
+
+</pre></font>
+
+<p>Orbital total energy per unit mass. <a href="#refJ/kg">[J/kg]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="nominalSpeed"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">nominalSpeed&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+nominalSpeed ( self )
+
+</pre></font>
+
+<p>This is the nominal speed of the object at this location.
+        For orbits it is orbital speed; for non-orbits it is the
+        instantaneous speed.  <a href="#refm/s">[m/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="opportunitiesPeriodWith"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">opportunitiesPeriodWith&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+opportunitiesPeriodWith ( self,  other )
+
+</pre></font>
+
+<p>The period at which opportunities recur between the two bodies.
+        <a href="#refs">[s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="opportunityAngleWith"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">opportunityAngleWith&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+opportunityAngleWith ( self,  other )
+
+</pre></font>
+
+<p>The opportunity angle that this body makes with the other. <a href="#refrad">[rad]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="orbitalAngularSpeedAroundPrimary"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">orbitalAngularSpeedAroundPrimary&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+orbitalAngularSpeedAroundPrimary ( self )
+
+</pre></font>
+
+<p>The orbital angular speed around the primary. <a href="#refrad/s">[rad/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="orbitalCircumference"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">orbitalCircumference&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+orbitalCircumference ( self )
+
+</pre></font>
+
+<p>The circumference of a circular orbit at this distance. <a href="#refm">[m]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="orbitalPeriodAroundPrimary"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">orbitalPeriodAroundPrimary&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+orbitalPeriodAroundPrimary ( self )
+
+</pre></font>
+
+<p>The orbital period around the primary. <a href="#refs">[s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="orbitalSpeedAroundPrimary"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">orbitalSpeedAroundPrimary&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+orbitalSpeedAroundPrimary ( self )
+
+</pre></font>
+
+<p>The orbital speed around the primary. <a href="#refm/s">[m/s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="phaseAngle"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">phaseAngle&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+phaseAngle ( self )
+
+</pre></font>
+
+<p>The base phase angle. <a href="#refrad">[rad]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="pressureAt"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">pressureAt&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+pressureAt ( self )
+
+</pre></font>
+
+<p>The pressure from the primary at this altitude. <a href="#refPa">[Pa]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="primaries"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">primaries&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+primaries ( self,  seq=None )
+
+</pre></font>
+
+<p>Return a list of primaries, from most distant to least distant.</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="primary"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">primary&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+primary ( self )
+
+</pre></font>
+
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="relativeOrbitalAngularSpeedWith"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">relativeOrbitalAngularSpeedWith&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+relativeOrbitalAngularSpeedWith ( self,  other )
+
+</pre></font>
+
+<p>The relative orbital angular speed of the two objects <a href="#refrad/s">[rad/s]</a>.</p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="roundTripTimeWith"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">roundTripTimeWith&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+roundTripTimeWith ( self,  other )
+
+</pre></font>
+
+<p>The round trip time for a departure from self, arrival at
+        other, wait for opportunity to return, and transfer from other
+        back to self. <a href="#refs">[s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="roundTripWaitTimeWith"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">roundTripWaitTimeWith&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+roundTripWaitTimeWith ( self,  other )
+
+</pre></font>
+
+<p>For a round trip of Hohmann transfers from self to other, a
+        wait for opportunity, and a return from other to self, the
+        time required to wait for the return opportunity. <a href="#refs">[s]</a></p>
+
+        <tr>
+            <th bgcolor="#99ccff"
+                rowspan="2"
+                valign="top"
+                align="left"
+                width="20%"
+                >
+                <font color="#000000">
+                  <a name="stationKeeping"></a>&nbsp;
+                </font>
+            </th>
+            <th bgcolor="#99ccff"
+                valign="top"
+                align="left"
+                width="80%"
+                >
+                <font color="#000000">stationKeeping&nbsp;</font>
+            </th>
+        </tr>
+        <tr>
+        <td>
+        <font color="#000088"><pre>
+stationKeeping ( self )
+
+</pre></font>
+
+<p>The amount of station keeping that must be exerted to keep a
+        body from drifting here, measured as an acceleration. [m/s^2]</p>
+</td></tr>
+</td></tr>
+</table>
+
+        </td>
+        </tr>
+        </table>
+
+        <hr>
+
+        <p><i><a href="../../../../../../index.html">Table of Contents</a></i></p>
+
+        <font size="-2"><i>This document was automatically generated
+        on Sat Aug 26 18:38:02 2006 by
+        <a href="http://happydoc.sourceforge.net">HappyDoc</a> version
+        2.1</i></font>
+        
+        </body>
+        </html>
+        
