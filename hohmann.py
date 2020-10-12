@@ -70,11 +70,13 @@ async def transfer(request):
         destination = loc(request.query_params['destination'])
         course = botec.Course(origin, destination)
     else:
+        origin = None
+        destination = None
         course = None
 
     return templates.TemplateResponse('index.html', {
-        'origin': request.query_params['origin'],
-        'destination': request.query_params['destination'],
+        'origin': origin,
+        'destination': destination,
         'course': course, 'request': request, 'LOCATIONS': LOCATIONS})
 
 
