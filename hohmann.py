@@ -1,7 +1,7 @@
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse
 from starlette.routing import Route
-import botec from botec
+import botec.botec as botec
 
 
 async def homepage(request):
