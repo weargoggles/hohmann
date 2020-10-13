@@ -28,6 +28,14 @@ button {
     display: block;
     width: 15em;
     height: 3em;
+    background: #3a5;
+    border: 2px solid #031;
+    border-radius: 1em;
+}
+
+hr {
+margin-top: 1.608em;
+color: #031;
 }
 
 </style>
@@ -56,6 +64,7 @@ button {
         <button>Calculate Course</button>
     </form>
     {% if course %}
+    <hr />
     <section>
         <p>Total 𝝙v: {{ course.deltavee() | round(2) }} m/s.<p>
         {% if course.duration %}
