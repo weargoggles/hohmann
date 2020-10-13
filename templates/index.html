@@ -17,6 +17,11 @@ select, label, button {
     font-family: Gugi, sans-serif !important;
 }
 
+label {
+    width: 3em;
+    display: inline-block;
+}
+
 button {
 
     margin-top: 1em;
@@ -30,6 +35,7 @@ button {
 <body>
     <h1>Back-of-the-envelope Orbital Transfer Calculator</h1>
     <form method="get" action="{{ url_for('transfer') }}">
+        <div>
         <label for="origin">From:</label>
         <select id="origin" name="origin">
             {% for location in LOCATIONS -%}
@@ -37,6 +43,8 @@ button {
             {%- endfor %}
         </select>
         <input type="checkbox" id="origin__is_surface" name="origin__is_surface" value="true" {% if request.query_params.origin__is_surface %}checked{% endif %}>Launch from surface</input>
+        </div>
+        <div>
         <label for="origin">To:</label>
         <select id="destination" name="destination">
             {% for location in LOCATIONS -%}
@@ -44,6 +52,7 @@ button {
             {%- endfor %}
         </select>
         <input type="checkbox" id="destination__is_surface" name="destination__is_surface" value="true" {% if request.query_params.destination__is_surface %}checked{% endif %}>Descent to surface</input>
+        </div>
         <button>Calculate Course</button>
     </form>
     {% if course %}
