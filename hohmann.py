@@ -8,6 +8,7 @@ from starlette.templating import Jinja2Templates
 import re
 import sentry_sdk
 from sentry_sdk.integrations.asgi import SentryAsgiMiddleware
+
 sentry_sdk.init(
     "https://d0b9b59743564012a6e876525f876a7f@o297975.ingest.sentry.io/5461409",
     traces_sample_rate=1.0
@@ -16,66 +17,32 @@ sentry_sdk.init(
 NUMBERS = re.compile(r'^\d+$')
 
 WORLD = botec.load()
-LOCATIONS = sorted(loc for loc in WORLD.keys() if not NUMBERS.match(loc) and WORLD[loc].radius() > 0)
+LOCATIONS = sorted(
+        loc for loc in WORLD.keys()
+        if not NUMBERS.match(loc)
+        and WORLD[loc].radius() > 0
+    )
 
 templates = Jinja2Templates(directory='templates')
 
 def precisedelta(delta, *args, **kwargs):
     td = timedelta(seconds=delta)
     return humanize.precisedelta(td, *args, **kwargs)
+
 templates.env.filters['precisedelta'] = precisedelta
 
-
-def loc(locstring):
-    return WORLD[locstring]
-    if '+' in locstring:
-        body, altitude = locstring.split('+')
-        the_body = WORLD[body]
-        if the_body.hasSurface() and the_body.radius() > 0:
-            return botec.AltitudeLocation(WORLD[body], int(altitude))
-        else:
-            return botec.Location(WORLD[body], int(altitude))
-    loc = WORLD[locstring]
-    if loc.hasSurface():
-        return botec.SurfaceLocation(WORLD[locstring])
-    return botec.AltitudeLocation(loc, 100000)
-
-async def transfer_data(request):
-    origin = loc(request.query_params['origin'])
-    destination = loc(request.query_params['destination'])
-    
-    assert origin is not None, destination is not None
-    course = botec.Course(origin, destination)
-    return {
-        'course': str(course),
-        'source': str(origin),
-        'destination': str(destination),
-        'opportunities': [
-            {
-                'opportunity': str(opportunity),
-                'angle': opportunity.angle(),
-                'period': humanize.precisedelta(timedelta(seconds=opportunity.period()), minimum_unit="hours"),
-            }
-            for opportunity in course.opportunities()
-        ],
-        'maneuvers': [{
-            'burns': len(maneuver.burns()),
-            'deltavee': maneuver.deltavee(),
-            'description': str(maneuver),
-        } for maneuver in course.maneuvers()],
-        'deltavee': course.deltavee(),
-        'duration': course.duration(),
-        'humanized_duration': humanize.precisedelta(
-            timedelta(seconds=course.duration()),
-        ) if course.duration() else 0,
-    }
+def loc(request, name):
+    origin_loc = WORLD[request.query_params[name]]
+    if bool(request.query_params.get(name+'__is_surface', False)) and origin_loc.period() and origin_loc.hasSurface():
+        return botec.SurfaceLocation(origin_loc)
+    return origin_loc
 
 async def transfer(request):
     origin = request.query_params.get('origin')
     destination = request.query_params.get('destination')
     if origin and destination and origin in LOCATIONS and destination in LOCATIONS and origin != destination:
-        origin_loc = loc(request.query_params['origin'])
-        destination_loc = loc(request.query_params['destination'])
+        origin_loc = loc(request, 'origin')
+        destination_loc = loc(request, 'destination')
         course = botec.Course(origin_loc, destination_loc)
     else:
         origin = None
@@ -83,6 +50,7 @@ async def transfer(request):
         course = None
 
     return templates.TemplateResponse('index.html', {
+        'request': request,
         'origin': origin,
         'destination': destination,
         'course': course, 'request': request, 'LOCATIONS': LOCATIONS})
