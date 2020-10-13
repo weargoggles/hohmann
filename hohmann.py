@@ -33,7 +33,7 @@ templates.env.filters['precisedelta'] = precisedelta
 
 def loc(request, name):
     origin_loc = WORLD[request.query_params[name]]
-    if bool(request.query_params.get(name+'__is_surface', False)):
+    if bool(request.query_params.get(name+'__is_surface', False)) and origin_loc.period() and origin_loc.hasSurface():
         return botec.SurfaceLocation(origin_loc)
     return origin_loc
 
@@ -50,6 +50,7 @@ async def transfer(request):
         course = None
 
     return templates.TemplateResponse('index.html', {
+        'request': request,
         'origin': origin,
         'destination': destination,
         'course': course, 'request': request, 'LOCATIONS': LOCATIONS})

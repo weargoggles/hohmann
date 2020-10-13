@@ -36,14 +36,14 @@ button {
             <option value={{ location }} {% if origin == location %}selected{% endif %}>{{location}}</option>
             {%- endfor %}
         </select>
-        <input type="checkbox" id="origin__is_surface" name="origin__is_surface" value={{ origin__is_surface }}>Launch from surface</input>
+        <input type="checkbox" id="origin__is_surface" name="origin__is_surface" value="true" {% if request.query_params.origin__is_surface %}checked{% endif %}>Launch from surface</input>
         <label for="origin">To:</label>
         <select id="destination" name="destination">
             {% for location in LOCATIONS -%}
             <option value={{ location }} {% if destination == location %}selected{% endif %}>{{location}}</option>
             {%- endfor %}
         </select>
-        <input type="checkbox" id="destination__is_surface" name="destination__is_surface" value={{ origin__is_surface }}>Descent to surface</input>
+        <input type="checkbox" id="destination__is_surface" name="destination__is_surface" value="true" {% if request.query_params.destination__is_surface %}checked{% endif %}>Descent to surface</input>
         <button>Calculate Course</button>
     </form>
     {% if course %}
