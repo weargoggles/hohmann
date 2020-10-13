@@ -31,13 +31,18 @@ def precisedelta(delta, *args, **kwargs):
 
 templates.env.filters['precisedelta'] = precisedelta
 
+def loc(request, name):
+    origin_loc = WORLD[request.query_params[name]]
+    if bool(request.query_params.get(name+'__is_surface', False)):
+        return botec.SurfaceLocation(origin_loc)
+    return origin_loc
 
 async def transfer(request):
     origin = request.query_params.get('origin')
     destination = request.query_params.get('destination')
     if origin and destination and origin in LOCATIONS and destination in LOCATIONS and origin != destination:
-        origin_loc = WORLD[request.query_params['origin']]
-        destination_loc = WORLD[request.query_params['destination']]
+        origin_loc = loc(request, 'origin')
+        destination_loc = loc(request, 'destination')
         course = botec.Course(origin_loc, destination_loc)
     else:
         origin = None
