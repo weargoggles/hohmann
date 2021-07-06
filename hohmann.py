@@ -26,6 +26,8 @@ LOCATIONS = sorted(
 templates = Jinja2Templates(directory='templates')
 
 def precisedelta(delta, *args, **kwargs):
+    if delta == 0:
+        return "instantaneous"
     td = timedelta(seconds=delta)
     return humanize.precisedelta(td, *args, **kwargs)
 
